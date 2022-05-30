@@ -1,7 +1,7 @@
 auth:
   git:
     username: "admin"
-    password: "dummy"
+    password: ""
     url: https://github.com
   docker:
     # if specified use the docker config.json style secret like this:
@@ -11,3 +11,26 @@ auth:
 serviceaccount:
   enabled: true
   annotations: {}
+
+controller:
+  deployment:
+    labels: {}
+  pod:
+    labels: {}
+    annotations: {}
+  # specifies the name of an optional kubernetes secret to mount environment variables from for things like HTTP proxy
+  envFromSecret: "tekton-env"
+
+webhook:
+  deployment:
+    labels: {}
+  pod:
+    labels: {}
+  # specifies the name of an optional kubernetes secret to mount environment variables from for things like HTTP proxy
+  envFromSecret: "tekton-env"
+
+# overrides any configuration in the config-defaults ConfigMap
+configDefaults: {}
+
+# overrides any feature flags in the feature-flags ConfigMap
+featureFlags: {}
